@@ -11,6 +11,7 @@ namespace CC.Common.Parser
   public class StringSplitter
   {
     private Dictionary<string, IntRange> _items;
+    private List<string> _fields;
     private string _string;
     private int _neededLength;
     private StringSplitterEnum _pad;
@@ -20,6 +21,7 @@ namespace CC.Common.Parser
     public StringSplitter(StringSplitterEnum pad = StringSplitterEnum.PadNone)
     {
       _items = new Dictionary<string, IntRange>();
+      _fields = new List<string>();
       _neededLength = 0;
       _pad = pad;
       _padChar = ' ';
@@ -51,6 +53,20 @@ namespace CC.Common.Parser
       }
     }
 
+    public Dictionary<string, int> FieldDefs
+    {
+      get
+      {
+        Dictionary<string, int> ret = new Dictionary<string, int>();
+        foreach (string field in _fields)
+        {
+          var item = Range(field);
+          ret.Add(field, item.End - item.Start);
+        }
+        return ret;
+      }
+    }
+
     public Range<int> Range(string columnName)
     {
       return _items[columnName];
@@ -69,6 +85,7 @@ namespace CC.Common.Parser
       if (!_items.ContainsKey(columnName))
       {
         _items.Add(columnName, range);
+        _fields.Add(columnName);
       }
       else
       {

@@ -62,7 +62,11 @@ namespace CC.Common.Parser.Demo
         Console.WriteLine("New : {0}", split["New"].Trim());
         Console.WriteLine();
       }
-      
+
+      foreach (var item in split.FieldDefs)
+      {
+        Console.WriteLine(item.Key + ": " + item.Value.ToString());
+      }
       // Wait for us
       Console.ReadLine();
     }
