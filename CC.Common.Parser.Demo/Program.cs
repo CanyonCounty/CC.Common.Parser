@@ -53,7 +53,7 @@ namespace CC.Common.Parser.Demo
         string key = split[CODE];
 
         Console.WriteLine("Date: {0}", DateTime.ParseExact(date, "yyyyMMdd", CultureInfo.CurrentCulture).ToLongDateString());
-        // splitter does not trim the strings
+        // splitter does not trim the strings, it returns the "width" you asked for
         Console.WriteLine("Name: {0}", name.Trim());
         Console.WriteLine("Dept: {0}", dept.Trim());
         Console.WriteLine("Door: {0}", code.Trim());
