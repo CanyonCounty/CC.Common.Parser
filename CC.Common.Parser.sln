@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Common.Parser", "CC.Common.Parser\CC.Common.Parser.csproj", "{C4EC290C-0670-4D95-93BC-66541631B32E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Common.Parser.Demo", "CC.Common.Parser.Demo\CC.Common.Parser.Demo.csproj", "{AE0D3FCC-F379-493C-B7A0-806A44E0704E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{C4EC290C-0670-4D95-93BC-66541631B32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4EC290C-0670-4D95-93BC-66541631B32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4EC290C-0670-4D95-93BC-66541631B32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0D3FCC-F379-493C-B7A0-806A44E0704E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0D3FCC-F379-493C-B7A0-806A44E0704E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0D3FCC-F379-493C-B7A0-806A44E0704E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0D3FCC-F379-493C-B7A0-806A44E0704E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
