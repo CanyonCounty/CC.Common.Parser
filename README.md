@@ -61,6 +61,7 @@ Sometimes you get field definitions that look like this:
 RECORD LENGTH:  200   
     
 FIELD NAME|POSITION|LENGTH
+--------------------------
 DRIVERS LICENSE NUMBER|1|9
 SOCIAL SECURITY NUMBER|10|9
 COUNTY OF RESIDENCE|19|2
