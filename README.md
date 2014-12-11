@@ -55,3 +55,49 @@ Example:
     Console.WriteLine();
   }
 ```
+
+Sometimes you get field definitions that look like this:
+
+RECORD LENGTH:  200   
+    
+FIELD NAME|POSITION|LENGTH
+DRIVERS LICENSE NUMBER|1|9
+SOCIAL SECURITY NUMBER|10|9
+COUNTY OF RESIDENCE|19|2
+DATE OF BIRTH|21|8
+NAME|29|26
+ADDRESS|55|20
+SECOND LINE OF ADDRESS|75|20
+CITY|95|15
+STATE|110|2
+ZIP CODE|112|9
+FILLER|121|1
+MAILING ADDRESS|122|20
+SECOND LINE OF MAILING ADDRESS|142|20
+MAILING CITY|162|15
+MAILING STATE|177|2
+MAILING ZIP CODE|179|9
+FILLER|188|13
+
+Which can easily be coded as follows
+
+```
+  int pos = 0;
+  split.AddRange("DLN", new IntRange(pos, pos += 9));
+  split.AddRange("SSN", new IntRange(pos, pos += 9));
+  split.AddRange("County", new IntRange(pos, pos += 2));
+  split.AddRange("DOB", new IntRange(pos, pos += 8));
+  split.AddRange("Name", new IntRange(pos, pos += 26));
+  split.AddRange("Address", new IntRange(pos, pos += 20));
+  split.AddRange("Address2", new IntRange(pos, pos += 20));
+  split.AddRange("City", new IntRange(pos, pos += 15));
+  split.AddRange("State", new IntRange(pos, pos += 2));
+  split.AddRange("Zip", new IntRange(pos, pos += 9));
+  split.AddRange("Filler1", new IntRange(pos, pos += 1));
+  split.AddRange("MailAddress", new IntRange(pos, pos += 20));
+  split.AddRange("MailAddress2", new IntRange(pos, pos += 20));
+  split.AddRange("MailCity", new IntRange(pos, pos += 15));
+  split.AddRange("MailState", new IntRange(pos, pos += 2));
+  split.AddRange("MailZip", new IntRange(pos, pos += 9));
+  split.AddRange("Filler", new IntRange(pos, pos += 13));
+```
