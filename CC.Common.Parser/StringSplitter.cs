@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CC.Common.Parser
 {
-/// <summary>
+  /// <summary>
   /// This class will split a string by named ranges
   /// </summary>
   public class StringSplitter
@@ -113,4 +113,5 @@ namespace CC.Common.Parser
       }
       return ret;
     }
+  }
 }

@@ -2,7 +2,7 @@
 
 namespace CC.Common.Parser
 {
-public class Range<T> : IRange<T> where T : IComparable<T>
+  public class Range<T> : IRange<T> where T : IComparable<T>
   {
     private readonly T start;
     private readonly T end;
@@ -35,4 +35,5 @@ public class Range<T> : IRange<T> where T : IComparable<T>
     {
       return valueToFind.CompareTo(Start) >= 0 && valueToFind.CompareTo(End) <= 0;
     }
+  }
 }
