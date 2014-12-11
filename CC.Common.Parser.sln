@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Common.Parser", "CC.Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Common.Parser.Demo", "CC.Common.Parser.Demo\CC.Common.Parser.Demo.csproj", "{AE0D3FCC-F379-493C-B7A0-806A44E0704E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20AC0508-CD85-4B28-856B-5A906C7FA7AA}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
