@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CC.Common.Parser</id>
-    <version>1.0.0.4</version>
+    <version>1.0.0.5</version>
     <authors>kenwilcox</authors>
     <owners>kenwilcox</owners>
     <licenseUrl>https://github.com/CanyonCounty/CC.Common.Parser/blob/master/LICENSE</licenseUrl>
