@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CC.Common.Parser</id>
+    <version>1.0.0.4</version>
+    <authors>kenwilcox</authors>
+    <owners>kenwilcox</owners>
+    <licenseUrl>https://github.com/CanyonCounty/CC.Common.Parser/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/CanyonCounty/CC.Common.Parser</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>StringSplitter object for parsing named column values</description>
+    <releaseNotes>Added LINQPad sample</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>linqpad-samples parse text column</tags>
+  </metadata>
+</package>
