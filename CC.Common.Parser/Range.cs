@@ -2,38 +2,38 @@
 
 namespace CC.Common.Parser
 {
-  public class Range<T> : IRange<T> where T : IComparable<T>
-  {
-    private readonly T start;
-    private readonly T end;
-
-    public Range(T start, T end)
+    public class Range<T> : IRange<T> where T : IComparable<T>
     {
-      if (start.CompareTo(end) <= 0)
-      {
-        this.start = start;
-        this.end = end;
-      }
-      else
-      {
-        this.start = end;
-        this.end = start;
-      }
-    }
+        private readonly T _start;
+        private readonly T _end;
 
-    public T Start
-    {
-      get { return this.start; }
-    }
+        public Range(T start, T end)
+        {
+            if (start.CompareTo(end) <= 0)
+            {
+                _start = start;
+                _end = end;
+            }
+            else
+            {
+                _start = end;
+                _end = start;
+            }
+        }
 
-    public T End
-    {
-      get { return this.end; }
-    }
+        public T Start
+        {
+            get { return _start; }
+        }
 
-    public bool Contains(T valueToFind)
-    {
-      return valueToFind.CompareTo(Start) >= 0 && valueToFind.CompareTo(End) <= 0;
+        public T End
+        {
+            get { return _end; }
+        }
+
+        public bool Contains(T valueToFind)
+        {
+            return valueToFind.CompareTo(Start) >= 0 && valueToFind.CompareTo(End) <= 0;
+        }
     }
-  }
 }
