@@ -3,6 +3,16 @@ CC.Common.Parser
 
 Utility Classes for parsing files.
 
+Install
+-------
+```shell
+PM> Install-Package CC.Common.Parser
+```
+
+
+Info
+----
+
 IRange.cs - Interface for Ranges. Defines Start, End, Contains
 Range.cs - Generic Class for handling ranges
 IntRange.cs - Subclass or Range for int types
