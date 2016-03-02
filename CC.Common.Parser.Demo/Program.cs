@@ -1,74 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Globalization;
 
 namespace CC.Common.Parser.Demo
 {
-  class Program
-  {
-    private const string DATE = "Date";
-    private const string NAME = "Name";
-    private const string DEPT = "DeptNo";
-    private const string DOOR = "DoorCode";
-    private const string CODE = "KeyCode";
-
-    static void Main(string[] args)
+   public static class Program
     {
-      // Parse DemoFile1 - Since it's fixed width we don't need to pad it
-      StringSplitter split = new StringSplitter(StringSplitterEnum.PadNone);
+        private const string Date = "Date";
+        private const string Name = "Name";
+        private const string Dept = "DeptNo";
+        private const string Door = "DoorCode";
+        private const string Code = "KeyCode";
 
-      // Now we add our "field" definitions - zero based positioning
-      split.AddRange(DATE, new IntRange(0, 8));
-      split.AddRange(NAME, new IntRange(8, 47));
-      split.AddRange(DEPT, new IntRange(47, 53));
-      split.AddRange(DOOR, new IntRange(54, 57));
-      split.AddRange(CODE, new IntRange(57, 60));
-      // you can also have overlaping fields
-      split.AddRange("New", new IntRange(54, 60));
+        public static void Main()
+        {
+            // Parse DemoFile1 - Since it's fixed width we don't need to pad it
+            var split = new StringSplitter();
 
-      // Read our file, line by line or all at once, doesn't matter
-      string[] data = new string[] { };
-      using (StreamReader sr = File.OpenText("DemoFile1.txt"))
-      {
-        string text = sr.ReadToEnd();
-        // Split using UNIX EOL
-        data = text.Split('\n');
-        sr.Close();
-      }
+            // Now we add our "field" definitions - zero based positioning
+            split.AddRange(Date, new IntRange(0, 8));
+            split.AddRange(Name, new IntRange(8, 47));
+            split.AddRange(Dept, new IntRange(47, 53));
+            split.AddRange(Door, new IntRange(54, 57));
+            split.AddRange(Code, new IntRange(57, 60));
+            // you can also have overlaping fields
+            split.AddRange("New", new IntRange(54, 60));
 
-      // Go through each line
-      foreach (string line in data)
-      {
-        // "stuff" the "parser"
-        split.String = line;
+            // Read our file, line by line or all at once, doesn't matter
+            string[] data;
+            using (var sr = File.OpenText("DemoFile1.txt"))
+            {
+                var text = sr.ReadToEnd();
+                // Split using EOL
+                data = text.Split('\n');
+                sr.Close();
+            }
 
-        // Ask for the chunk back - case sensitive, but doesn't throw an error, you get a blank string
-        string date = split[DATE];
-        string name = split[NAME];
-        string dept = split[DEPT];
-        string code = split[DOOR];
-        string key = split[CODE];
+            // Go through each line
+            foreach (var line in data)
+            {
+                // "stuff" the "parser"
+                split.String = line;
 
-        Console.WriteLine("Date: {0}", DateTime.ParseExact(date, "yyyyMMdd", CultureInfo.CurrentCulture).ToLongDateString());
-        // splitter does not trim the strings, it returns the "width" you asked for
-        Console.WriteLine("Name: {0}", name.Trim());
-        Console.WriteLine("Dept: {0}", dept.Trim());
-        Console.WriteLine("Door: {0}", code.Trim());
-        Console.WriteLine("Code: {0}", key.Trim());
-        // And just for giggles
-        Console.WriteLine("New : {0}", split["New"].Trim());
-        Console.WriteLine();
-      }
+                // Ask for the chunk back - case sensitive, but doesn't throw an error, you get a blank string
+                var date = split[Date];
+                var name = split[Name];
+                var dept = split[Dept];
+                var code = split[Door];
+                var key = split[Code];
 
-      foreach (var item in split.FieldDefs)
-      {
-        Console.WriteLine(item.Key + ": " + item.Value.ToString());
-      }
-      // Wait for us
-      Console.ReadLine();
+                Console.WriteLine("Date: {0}", DateTime.ParseExact(date, "yyyyMMdd", CultureInfo.CurrentCulture).ToLongDateString());
+                // splitter does not trim the strings, it returns the "width" you asked for
+                Console.WriteLine("Name: {0}", name.Trim());
+                Console.WriteLine("Dept: {0}", dept.Trim());
+                Console.WriteLine("Door: {0}", code.Trim());
+                Console.WriteLine("Code: {0}", key.Trim());
+                // And just for giggles
+                Console.WriteLine("New : {0}", split["New"].Trim());
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Field Definitions");
+            foreach (var item in split.FieldDefs)
+            {
+                Console.WriteLine(item.Key + ": " + item.Value.ToString());
+            }
+            // Wait for us
+            Console.ReadLine();
+        }
     }
-  }
 }
